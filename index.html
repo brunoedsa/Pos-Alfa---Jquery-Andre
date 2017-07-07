@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trabalho Pos - Bruno Eduardo</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- carrousel  -->
+        <link rel="stylesheet" type="text/css" href="jcarrousel/examples/_shared/css/style.css">
+        <link rel="stylesheet" type="text/css" href="jcarrousel/examples/connected-carousels/jcarousel.connected-carousels.css">
+        <script type="text/javascript" src="jcarrousel/libs/jquery/jquery.js"></script>
+        <script type="text/javascript" src="jcarrousel/dist/jquery.jcarousel.min.js"></script>
+        <script type="text/javascript" src="jcarrousel/examples/connected-carousels/jcarousel.connected-carousels.js"></script>
+        <!-- fim carrousel -->
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="lightbox2-master/dist/css/lightbox.min.css">
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="jquery-ui-1.12.1.custom/jquery-ui.min.css">
+        <script type="text/javascript" src="lightbox2-master/dist/js/lightbox-plus-jquery.min.js"></script>
+        <script type="text/javascript" src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+        <script type="text/javascript" src="jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="jquery.inputmask-3.x/js/inputmask.js"></script>
+        <script type="text/javascript" src="jquery.inputmask-3.x/js/inputmask.numeric.extensions.js"></script>
+        <script type="text/javascript" src="jquery.inputmask-3.x/js/jquery.inputmask.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function ()
+            {
+                $('#telefone').inputmask('(99)9 9999-9999');
+                $(function ()
+                {
+                    $("#calendario").datepicker();
+                });
+                $(window).scroll(function ()
+                {
+                    if ($(this).scrollTop() > 100)
+                    {
+                        $('a[href="#top"]').fadeIn();
+                    } else
+                    {
+                        $('a[href="#top"]').fadeOut();
+                    }
+                });
+
+                $('a[href="#top"]').click(function ()
+                {
+                    $('html, body').animate({scrollTop: 0}, 800);
+                    return false;
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function ()
+            {
+                $.getJSON('estados-cidades.json', function (data)
+                {
+                    var itens = '<option name="">- Selecione um estado -</option>';
+                    $.each(data.estados, function (key, val)
+                    {
+                        itens = itens + '<option value="' + val.sigla + '">' + val.nome + '</option>';
+                    });
+                    $('#estado').html(itens);
+                });
+                $('#estado').change(function ()
+                {
+                    $('#cidade').html('');
+                    var estado = $(this).val();
+                    $.getJSON('estados-cidades.json', function(data)
+                    {
+                        $.each(data.estados, function(key, val)
+                        {
+                            if (val.sigla == estado)
+                            {
+                                exibirCidades(val.cidades);
+                            }
+                        });
+                    });
+                });
+                function exibirCidades(cidades)
+                {
+                    var itens = '<option name="">- Selecione uma cidade -</option>';
+                    $.each(cidades, function(key, val)
+                    {
+                        itens += '<option value="' + val + '">' + val + '</option>'
+                    });
+                    $('#cidade').html(itens);
+                }
+                $("p").hide();
+                $('#verificar-email').click(function ()
+                {
+                    $("form").submit(function ()
+                    {
+                        return false;
+                    });
+                    var sEmail = $("#email").val();
+                    var emailFilter = /^.+@.+\..{2,}$/;
+                    var illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/
+                    if (!(emailFilter.test(sEmail)) || sEmail.match(illegalChars))
+                    {
+                        $("p").show().removeClass("ok").addClass("erro")
+                                .text('Por favor, informe um email válido.');
+                    } else
+                    {
+                        $("p").show().addClass("ok")
+                                .text('Email informado está correto!');
+                    }
+                });
+                $('#email').focus(function ()
+                {
+                    $("p.erro").hide();
+                });
+            });
+        </script>
+    </head>
+    <body class="home-page">
+        <div class="container">
+            <div class="header">
+                <div class="logo logonome">
+                    <a href="index.php">
+                        <img class="imglogo" src="imagens/logo2.jpg">
+                    </a>
+                </div>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#">PRODUTOS</a>
+                        <ul>
+                            <li><a href="#">PERECÍVEIS</a></li>
+                            <li><a href="#">NÃO-PERECÍVEIS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">CADASTRO</a></li>
+                    <li><a href="#">QUEM SOMOS</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="connected-carousels">
+            <div class="stage">
+                <div class="carousel carousel-stage">
+                    <ul>
+                        <li><img src="imagens/img1.jpg" width="600" height="400" alt=""></li>
+                        <li><img src="imagens/img2.jpg" width="600" height="400" alt=""></li>
+                        <li><img src="imagens/img3.jpg" width="600" height="400" alt=""></li>
+                    </ul>
+                </div>
+                <p class="photo-credits">
+                    Photos by <a href="http://www.mw-fotografie.de">Marc Wiegelmann</a>
+                </p>
+                <a href="#" class="prev prev-stage"><span>&lsaquo;</span></a>
+                <a href="#" class="next next-stage"><span>&rsaquo;</span></a>
+            </div>
+        </div>
+        <main>
+            <div class="container">
+                <form id="form1" action="#">
+                    <div class="centrodoconteudo">
+                        <div class="campovalidacao">
+                            <h1>Formulario de Cadastro</h1>
+                            <label for="nome">Nome: </label>
+                            <br>
+                            <input type="text" name="nome" id="nome">
+                            <br>
+                            <label for="email">E-mail: </label>
+                            <br>
+                            <input type="text" name="email" id="email"  />
+                            <input type="submit" value="VERIFICAR" id="verificar-email" />
+                            <p style="        font-size: 1.0em;
+                               background: rgb(0, 146, 4);
+                               width: 41%;
+                               color: rgb(255, 255, 255);
+                               height: auto;
+                               padding: 10px;
+                               font-weight: 600;
+                               float: right;
+                               display: block;"><input type="text" /></p>
+                            <br>
+                            <label for="telefone">Telefone: </label>
+                            <br>
+                            <input type="text" name="telefone" id="telefone">
+                            <br>
+                            <label for="data">Data Nascimento: </label>
+                            <br>
+                            <input type="text" id="calendario" />
+                            <br>
+                            <label for="estado">Estado</label>
+                            <select id="estado"></select>
+                            <label for="cidade">Cidade</label>
+                            <select id="cidade"></select>
+                            <br>
+                            <input type="submit" value="ENVIAR" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <br>
+            <div class="container">
+                <h1>Galeria de Imagens</h1>
+                <div class="item">
+                    <a class="example-image-link" href="imagens/imagem1.jpg" data-lightbox="example-set" data-title="imagem">
+                        <img src="imagens/imagem1.jpg" alt="imagem"></a>
+                </div>
+                <div class="item">
+                    <a class="example-image-link" href="imagens/imagem2.jpg" data-lightbox="example-set" data-title="imagem">
+                        <img src="imagens/imagem2.jpg" alt="imagem"></a>
+                </div>
+                <div class="item">
+                    <a class="example-image-link" href="imagens/imagem3.jpg" data-lightbox="example-set" data-title="imagem">
+                        <img src="imagens/imagem3.jpg" alt="imagem"></a>
+                </div>
+                <div class="item">
+                    <a class="example-image-link" href="imagens/imagem4.jpg" data-lightbox="example-set" data-title="imagem">
+                        <img src="imagens/imagem4.jpg" alt="imagem"></a>
+                </div>
+                <div class="item">
+                    <a class="example-image-link" href="imagens/imagem5.jpg" data-lightbox="example-set" data-title="imagem">
+                        <img src="imagens/imagem5.jpg" alt="imagem"></a>
+                </div>
+                <div class="item">
+                    <a class="example-image-link" href="imagens/imagem6.jpg" data-lightbox="example-set" data-title="imagem">
+                        <img src="imagens/imagem6.jpg" alt="imagem"></a>
+                </div>
+            </div>
+        </main>
+        <a href="#top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+
+</html>

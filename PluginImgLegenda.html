@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício - Plugin de Legenda Imagem</title>
+        <script type="text/javascript" src="aula02/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+            window.onload = function(){
+                $('p').html($('#foto').prop('alt'));
+	        };
+        </script>
+    </head>
+    <body>
+        <a href="images/dogalho.jpg"><img src="images/dogalho.jpg" alt="Dog Com Alho no Espaço" id="foto" /></a>
+        <p></p>
+    </body>
+</html>

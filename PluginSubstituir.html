@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício - Plugin de Substituição</title>
+        <script type="text/javascript" src="aula02/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var substituir = $('body').html().replace(/\e/gi,'enter').replace(/\i/gi,'inis')
+            .replace(/\o/gi,'omber').replace(/\u/gi,'ufter').replace(/\a/gi,'ais');
+            $('body').html(substituir);
+        });
+        </script>
+    </head>
+    <body>
+        <h1>Otorrinolaringologista de Umuarama</h1>
+    </body>
+</html>

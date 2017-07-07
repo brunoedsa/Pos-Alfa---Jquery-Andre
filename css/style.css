@@ -1,0 +1,240 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} /*para definir tudo como padrao e o (*) serve para tudo o que vc for colocar na tela*/
+header{
+    float: left;
+    padding: 0px;
+    width: 100%;
+    float: left;
+
+}
+main {
+    background: #000;
+}
+body {
+    font-size: 62.5%;
+    padding:0px;
+    margin:0px;
+    background-color: #000 !important;
+}
+img {
+    max-width: 100%;
+}
+img {
+    width: 100%;
+}
+.container {
+    width: 1200px;
+    margin: 0px auto;
+    display: table;
+    margin-bottom: 15px;
+    margin-top: -15px;
+}
+
+/*====================MENU========================*/
+.menu ul {
+    padding:0px;
+    margin:0px;
+    float: right;
+    list-style:none;
+}
+.menu ul li {
+    position: relative;
+    float: left;
+    display: inline; 
+}
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 23px;
+    float: left;
+    font-size: 0.9em;
+    margin-top: 73px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+.menu ul li a:hover {
+    color: #17b70d;
+    text-decoration: none;
+}
+.menu ul li:hover > ul {
+    display: block;
+    position: absolute;
+    width: 202%;
+    float: left;
+    top: 100%;
+    left: -53%;
+    text-align: center;
+}
+.menu li ul {
+    position: absolute;
+    display: none;
+}
+.menu ul li {
+    position: relative;
+    float: left;
+}
+.menu ul li {
+    display: inline;
+}
+ul > li > ul > li {
+    width: 100%;
+}
+.menu ul > li > ul > li > a {
+    text-align: center;
+    width: 100%;
+    background: #000;
+    margin-top: 0px;
+}
+.menu ul li a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff;
+    color: #fff;
+    background: #17b70d;
+    border-radius: 10px;
+}
+.menu nav {
+    float: right;
+}
+/*final do menu*/
+
+/*============ICONE DA LOGO=============*/
+.logo {
+    width: 29%;
+    float: left;
+    text-align: center;
+    padding-top: 23px;
+    padding-bottom: 10px;
+}
+.imgbanner {
+    width: 100%;
+}
+.cycle-slide {
+    width: 100%;
+}
+.logonomeh1 {
+    width: 100%;
+    float: right;
+    margin-top: -100px;
+    margin-right: -107px;
+}
+.logonome h1 {
+    font-size: 4.0em;
+    color: #3826ff !important;
+    font-weight: 600;
+    text-shadow: #000 2px -2px, #000 -2px 1px, #000 1px 2px, #000 -1px -1px;
+}
+label {
+    font-size: 1.2em;
+    color: #fff;
+}
+input:hover {
+    background: #dedede;
+}
+.campovalidacao {
+    background: #6d6d6d;
+    padding: 20px 17px 60px 17px;
+    border-bottom: 1px solid #fff;
+    width: 70%;
+    float: left;
+    border-radius: 22px;
+    margin-top: 40px;
+    margin-left: 14%;
+}
+.container h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 1.5em;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.connected-carousels .stage {
+    width: 86% !important;
+}
+table {
+    font-size: 1em;
+}
+
+.ui-draggable, .ui-droppable {
+    background-position: top;
+}
+.ui-datepicker table {
+    background: #fff;
+    font-size: 1.5em;
+}
+#ui-datepicker-div {
+    background: rgb(0, 146, 4);
+    font-size: 1.0em;
+
+}
+.ui-datepicker .ui-datepicker-title {
+    color: #fff;
+    font-weight: 600;
+}
+.ui-datepicker td a {
+    border: 1px solid #000;
+    color: #000;
+}
+.centrodoconteudo {
+    width: 100%;
+    float: left;
+    background: #000;
+}
+/*EFEITOS DE IMGS*/
+.item {
+    position: relative;
+    border: 1px solid #333;
+    margin: 2%;
+    overflow: hidden;
+    width: 29.33%;
+    float: left;
+}
+.item img {
+    max-width: 100%;
+}
+
+/*mechendo na estilizalao do input*/
+input[type=text]{   
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    box-shadow: 1px 1px 2px #333333;    
+    -moz-box-shadow: 1px 1px 2px #333333;
+    -webkit-box-shadow: 1px 1px 2px #333333;
+    background: #ffffff;
+    border: 1px solid #000000;
+    width: 40%;
+    height: 25px;
+}
+
+input[type=text]:hover, textarea:hover{ 
+    background: #ffffff; border:1px solid #990000;
+}
+
+input[type=submit]{
+    background: #0d0456;
+    color: #ffffff;
+    width: 13%;
+    height: 25px;
+    border: 1px solid #000;
+}
+/*botao subir ao topo*/
+a[href="#top"]{
+    padding: 9px;
+    position: fixed;
+    top: 85%;
+    right: 30px;
+    display: none;
+    color: rgb(0, 146, 4);
+    font-size: 40px;
+    padding-bottom: 0px;
+}
+a[href="#top"]:hover{
+    text-decoration:none;
+}
